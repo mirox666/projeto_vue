@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Vue 2</title>
+</head>
+<body>
+    <section id="app">
+        <h1>Bem vindo, {{ nome }}</h1>
+        <!-- A DIRETIVA V-TEXT MOSTRA APENAS UM TEXTO NA TAG TODA -->
+        <p v-text="nome"></p>
+        <!-- A DIRETIVA V-HTML VERIFICA TODAS AS TAGS DENTRO DO TEXTO E RENDERIZA -->
+        <P v-html="texto"></P>
+        <!--A DIRETIVA V-BIND PERMITE FAZER LIGAÇÃO DE ATRIBUTOS EXISTENTE NO HTML COM VARIÁVEIS DO VUE  -->
+        <img v-bind:src="imagem" alt="" style="width: 200px;">
+        <img v-bind:src="imagem2" alt="" style="width: 200px;">
+        <img v-bind:src="imagem3" alt="" style="width: 200px;">
+    </section>
+    <script src="https://unpkg.com/vue@3"></script>
+    
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    nome:"Raposo",
+                    texto: "<strong> Desenvolvedor Fullstack </strong>",
+                    imagem:"https://images.pexels.com/photos/11995419/pexels-photo-11995419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                    imagem2:"https://images.pexels.com/photos/10404283/pexels-photo-10404283.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                    imagem3:"https://images.pexels.com/photos/11506984/pexels-photo-11506984.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                
+            }
+        }
+        })
+
+        app.mount('#app')
+    </script>
+</body>
+</html>

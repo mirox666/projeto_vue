@@ -9,6 +9,7 @@
     <section id="app">
         <p>olá, meu nome é {{nome}}</p>
         <p>Meu sobrenome é {{sobrenome}}</p>
+        <p>minha idade é {{ idade }}</p>
     </section>
    
     <script src="https://unpkg.com/vue@3"></script>
@@ -17,7 +18,8 @@
             data(){
                 return{
                     nome:'matheus',
-                    sobrenome:'Raposo'
+                    sobrenome:'Raposo',
+                    idade:23
                 }
             }
         })
