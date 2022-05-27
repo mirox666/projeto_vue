@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo3</title>
+
+    <style>
+        img{width: 250px;}
+    </style>
 </head>
 <body>
    <section id="app">
@@ -11,7 +15,21 @@
         <input type="text" v-model="digitado">
         <p>{{digitado}}</p>
     </form>
-   </section>
+    <!-- A DIRETIVA V-IF, V-ELSE-IF E V-ELSE SERVEM PARA EXIBIR INFORMAÇÕES CONDICIONAIS -->
+    <section v-if="digitado == 1 ">
+        <img v-bind:src="img1" alt="">
+    </section>
+    <section v-else-if="digitado == 2">
+        <img :src="img2" alt="">
+    </section>
+    <section v-else-if="digitado == 3 ">
+        <img :src="img3" alt="">
+    </section>
+
+    <p v-else>
+        Por favor, informe um valor de 1 a 3  para escolher uma imagem
+    </p>
+</section>
 
 
     <script src="https://unpkg.com/vue@3"></script>
@@ -19,7 +37,10 @@
         const app = Vue.createApp({
             data(){
                 return{
-                    digitado:"matheus"
+                    digitado:"",
+                    img1: "imagens/imagem1.webp",
+                    img2: "imagens/imagem2.jpg",
+                    img3: "imagens/imagem3.jpg"
                 }
             }
         })
