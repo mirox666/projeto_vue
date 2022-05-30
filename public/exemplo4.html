@@ -18,6 +18,21 @@
         <p v-for="elet in eletro">
             {{elet}}
         </p>
+        <hr>
+        <p v-for="(valor, chave, indice) in pessoa">
+           {{indice}}- {{chave}}: {{valor}}
+        </p>
+        <hr>
+        
+        <p v-for="(marca,indice) in carros">
+            {{indice}}- {{marca.marca}} {{marca.modelo}} 
+        </p>
+        <hr>
+        
+        <p v-for="cont in 10">
+            {{cont}}
+        </p>
+
     </section>
     
     
@@ -30,7 +45,19 @@
                      "imagens/imagem2.jpg",
                      "imagens/imagem3.jpg"],
                     frutas:["Morango", "Maçã", "Mamão", "Melancia"],
-                    eletro:["air-frayer","cafeteira","geladeira","televisão"]
+                    eletro:["air-frayer","cafeteira","geladeira","televisão"],
+                    //Objetos
+                    pessoa:{
+                        nome:"raposo rodrigues",
+                        idade:23,
+                        endereco:"avenida norte sul "
+                    },
+                    //Vetor de objetos
+                    carros:[
+                        {marca:"Porsche",modelo:911},
+                        {marca:"Fiat",modelo:"Pálio"},
+                        {marca:"VolksWagen",modelo:"Gol 66"}
+                    ]
                 }
             }
         })
