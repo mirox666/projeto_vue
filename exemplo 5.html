@@ -10,11 +10,12 @@
         <h1>Lista de compras </h1>
         <form action="">
             <input type="text" v-model="produto">
-            <button v-on:click="adicionarProduto()">Inserir produto</button>
+            <button v-on:click.prevent="adicionarProduto()">Inserir produto</button>
+            <button @click.prevent="removerProdutos()">remover Item</button>
         </form>
         
         <ul>
-            <li></li>
+            <li v-for="item in lista">{{item}}</li>
         </ul>
 
 
@@ -35,7 +36,18 @@
             },
             methods:{
                 adicionarProduto(){
-                    alert("Produto adicionado")
+                    if(this.produto == ""){
+                        alert("Coloque algum Produto")
+                        
+                    }
+                    else{
+                        this.lista.push(this.produto)//Adicionando elemento no vetor
+                        this.produto = '' //Limpando o campo input
+                        alert("Produto colocado")
+                    }
+                },
+                removerProdutos(){
+                    this.lista.pop()//Remover o último item do vetor
                 }
             }
         })
