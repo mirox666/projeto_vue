@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 6 </title>
+
+    <style>
+        *{margin: 0; padding: 0;}
+        .escuro{background-color: #101010; color: #f6efe8;}
+        .claro{background-color: #f6efe8;color: #101010;}
+        .escuro, .claro{font-family: Arial;height: 100vh;}
+    </style>
+</head>
+<body>
+<section id="app">
+    <section class="claro">
+        <input type="checkbox" id="tema" @change="mudarTema()">
+        <label for="tema">Mudar tema</label>
+
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id nemo voluptas obcaecati eaque porro, et velit? Quo atque vel enim mollitia, laboriosam ratione. Sequi illo rem harum recusandae omnis voluptatem.
+            Vel culpa quaerat eos quia voluptates ipsum placeat praesentium nostrum sequi consequatur ullam neque aperiam dolorem possimus eveniet illum magni quis repellendus optio illo assumenda ab earum, dolorum natus. Tempore.
+            Obcaecati impedit soluta in placeat magni rem, temporibus officia? Minus voluptatibus corporis autem a animi! Sequi, asperiores alias nesciunt, neque tempora aliquid quisquam, dignissimos voluptate vel ad consectetur maxime dolor.
+            Sunt culpa, nobis quos temporibus praesentium molestias dolorem architecto quia rem qui, velit asperiores adipisci quibusdam reiciendis repellendus odit porro aperiam cumque voluptatibus eligendi! Minima dolorum exercitationem quia eum expedita?
+            Eos facere vel consectetur voluptatibus aliquam autem ex ipsam amet natus aspernatur inventore rerum sint cum adipisci minus quisquam similique fugit, asperiores officia temporibus tempore corporis et aperiam ea. Reprehenderit.
+        </p>
+    </section>
+
+</section>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    escolha:true
+                }
+            },
+            methods:{
+                mudarTema(){
+                    this.escolha = !this.escolha//Trocando os valores treu e false utilizando o operador de negação para isso  (!)
+                    console.log(this.escolha)
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>
