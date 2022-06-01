@@ -13,8 +13,9 @@
     </style>
 </head>
 <body>
-<section id="app">
-    <section class="claro">
+    <!--Quando fazemos um bind na class temos que colocar a classe css do lado esquerdo e uma variavel que será testada do lado direito  -->
+    <section id="app">
+    <section :class="[escolha ? 'claro' : 'escuro']"> <!-- sugar syntex de if else  (operado terminarios) -->
         <input type="checkbox" id="tema" @change="mudarTema()">
         <label for="tema">Mudar tema</label>
 
@@ -48,3 +49,5 @@
     </script>
 </body>
 </html>
+
+<!-- sugar syntex Variavel?classe: -->
