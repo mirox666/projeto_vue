@@ -17,7 +17,9 @@ const app = Vue.createApp({
             textoInicial:'Olá, Seja Bem Vindo ao Nosso Sistema',
             campoIdade:'',
             resultado:'',
-            info:''
+            info:'',
+            dolar:'',
+            cotacao:''
         }
     },
     methods:{
@@ -53,6 +55,18 @@ const app = Vue.createApp({
             else{
                 this.info=''
                 return true//Significa que o usuario inseriu um valor correto
+            }
+        },
+        converterDolar(){
+            let padrao = /^[0-9]+(\.([0-9]{2}))?$/ //Criando uma expressão regular
+            if(padrao.test(this.dolar) && padrao.test(this.cotacao)){
+                let resposta = this.dolar * this.cotacao
+                this.resultado = `U$${this.dolar} convertido para real é R$${resposta}`
+                this.info=''// retirando a mensagem de erro após informar resultado incorreto
+            }
+            else{
+                this.info = "Informe apena numeros interios ou separados por ponto com 2 casas decimais"
+                this.resultado=""
             }
         }
     }
