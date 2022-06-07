@@ -21,7 +21,9 @@ const app = Vue.createApp({
             dolar:'',
             cotacao:'',
             data:'',
-            statusTooltip:false// para verificar se o tooltip ja foi ativado
+            statusTooltip:false,// para verificar se o tooltip ja foi ativado
+            desconto:'',
+            porcento:''
         }
     },
     methods:{
@@ -88,6 +90,19 @@ const app = Vue.createApp({
                 const diaSemana = document.querySelector('#diaSemana')
                 const tooltip = new bootstrap.Tooltip(diaSemana)
                 this.statusTooltip = true
+            }
+        },
+        calcularDesconto(){
+            let num = /^[0-9]+(\.([0-9]{2}))?$/ //Isso e uma REGEX
+            if(num.test(this.desconto) && num.test(this.porcento)){
+               let resul = this.desconto * (this.porcento/100)
+               this.resultado = `${resul}  de desconto`
+               this.info='' 
+            }
+            else{
+                this.info= "coloque um valor para o desconto "
+                this.resultado=''
+
             }
         }
     }
