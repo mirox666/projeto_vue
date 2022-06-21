@@ -21,10 +21,25 @@ const app = Vue.createApp({
             dolar:'',
             cotacao:'',
             data:'',
-            statusTooltip:false,// para verificar se o tooltip ja foi ativado
+            statusTooltip:false,// para verificar se o tooltip ja foi ativado           
+            dolarOnline:'',//http://economia.awesomeapi.com.br/json/last/USD-BRL
+            cotacaoOnline:'',// Essa variável será um auxiliar
             desconto:'',
             porcento:''
         }
+    },
+    async mounted(){
+      const url = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
+      
+      try {
+          const resposta = await axios.get(url)
+          let dados = resposta.data
+          //console.log(dados.USDBRL.high)
+          this.cotacaoOnline = dados.USDBRL.high                  
+
+      } catch (error) {
+          console.log(`O seguinte erro ocorreu: ${error}`)
+      }
     },
     methods:{
         verificarLink(classe){
@@ -105,6 +120,15 @@ const app = Vue.createApp({
                 this.info= "coloque um valor para o desconto "
                 this.resultado=''
 
+            }
+        },
+        trocarCotacao(){
+            //console.log(this.dolarOnline)
+            if(this.dolarOnline){
+                this.cotacao = Number(this.cotacaoOnline).toFixed(2)// Estamos convertendo texto para número para podermos utilizar a função para toFiexd()
+            }
+            else{
+                this.cotacao = ''
             }
         }
     }
